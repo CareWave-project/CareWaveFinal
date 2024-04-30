@@ -42,8 +42,21 @@ class ViewMedicationActivity2 : AppCompatActivity() {
         // Read medication data from Firebase Realtime Database
         medicationsRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Create a list to store medications
+                val medications = mutableListOf<DataSnapshot>()
+
                 // Loop through all medications for the current user
                 for (medicationSnapshot in dataSnapshot.children) {
+                    medications.add(medicationSnapshot)
+                }
+
+                // Sort medications by time
+                medications.sortBy { medicationSnapshot ->
+                    medicationSnapshot.child("time").getValue(String::class.java)
+                }
+
+                // Loop through sorted medications
+                for (medicationSnapshot in medications) {
                     // Get medication data
                     val medication = medicationSnapshot.getValue(object : GenericTypeIndicator<Map<String, String>>() {})
 
@@ -76,8 +89,6 @@ class ViewMedicationActivity2 : AppCompatActivity() {
                     // Always set the text color to purple1
                     textViewMedicineName.setTextColor(ContextCompat.getColor(this@ViewMedicationActivity2, R.color.purple1))
 
-
-
                     // Create TextView for dose
                     val textViewDose = TextView(this@ViewMedicationActivity2)
                     textViewDose.text = "Dose: ${medication?.get("dose")}"
@@ -87,9 +98,8 @@ class ViewMedicationActivity2 : AppCompatActivity() {
                         LinearLayout.LayoutParams.MATCH_PARENT, // Width
                         LinearLayout.LayoutParams.WRAP_CONTENT // Height
                     )
-                    doseLayoutParams.setMargins(25, 158, 0, 12) // Set margins if needed
+                    doseLayoutParams.setMargins(25, 120, 0, 12) // Set margins if needed
                     textViewDose.layoutParams = doseLayoutParams
-
 
                     // Get the current time in the format matching your Firebase time format
                     val currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().time)
@@ -101,14 +111,13 @@ class ViewMedicationActivity2 : AppCompatActivity() {
                         LinearLayout.LayoutParams.MATCH_PARENT, // Width
                         LinearLayout.LayoutParams.WRAP_CONTENT // Height
                     )
-                    timeLayoutParams.setMargins(25, 300, 0, 18) // Set margins if needed
+                    timeLayoutParams.setMargins(25, 190, 0, 18) // Set margins if needed
                     textViewTime.layoutParams = timeLayoutParams
 
                     // Set color for the time text if it matches the current time retrieved from Firebase
                     if (medication?.get("time") == currentTime) {
                         textViewTime.setTextColor(ContextCompat.getColor(this@ViewMedicationActivity2, R.color.purple1))
                     }
-
 
                     // Add TextViews to the card
                     cardView.addView(textViewMedicineName)
@@ -135,7 +144,7 @@ class ViewMedicationActivity2 : AppCompatActivity() {
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
                     deleteButtonLayoutParams.gravity = Gravity.END or Gravity.BOTTOM // Align to bottom-right corner
-                    deleteButtonLayoutParams.setMargins(700, 220, 20, 16) // Add margin for spacing
+                    deleteButtonLayoutParams.setMargins(700, 170, 20, 10) // Add margin for spacing
                     deleteButton.layoutParams = deleteButtonLayoutParams
                     // Set onClickListener for the delete button
                     deleteButton.setOnClickListener {
@@ -153,7 +162,6 @@ class ViewMedicationActivity2 : AppCompatActivity() {
                     }
                     // Add the delete button to the card
                     cardView.addView(deleteButton)
-
                 }
             }
 
