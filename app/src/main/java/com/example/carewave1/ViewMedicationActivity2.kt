@@ -1,10 +1,12 @@
 package com.example.carewave1
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,14 @@ class ViewMedicationActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_medication2)
 
+
+        val backButton: ImageView = findViewById(R.id.icon_back_arrow)
+
+        // Set OnClickListener to the back arrow ImageView
+        backButton.setOnClickListener {
+            // Perform the action to navigate back to the previous page
+            onBackPressed()
+        }
         // Get the current user's ID from Firebase Authentication
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 
