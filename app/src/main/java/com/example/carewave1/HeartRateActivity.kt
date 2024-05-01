@@ -1,5 +1,6 @@
 package com.example.carewave1
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,13 +28,13 @@ class HeartRateActivity : AppCompatActivity() {
                     val dataMap = dataSnapshot.value as HashMap<*, *>
 
                     // Extract specific values from the HashMap
-                    val beatAvg = dataMap["beatAvg"]?.toString()?.toInt() ?: 0
+                    val beatAvg = dataMap["heartRate"]?.toString()?.toInt() ?: 0
                     val beatsPerMinute = dataMap["beatsPerMinute"]?.toString()?.toInt() ?: 0
                     val timestamp = dataMap["timestamp"]?.toString()?.toLong() ?: 0L
 
                     if (dataSnapshot.exists()) {
                         // Get the heart rate value
-                        val heartRate = dataMap["beatAvg"]?.toString()?.toInt() ?: 0
+                        val heartRate = dataMap["heartRate"]?.toString()?.toInt() ?: 0
 
                         // Update the heart rate text view
                         val heartRateTextView = findViewById<TextView>(R.id.heartRateText)
@@ -72,12 +73,15 @@ class HeartRateActivity : AppCompatActivity() {
         databaseReference.addValueEventListener(valueEventListener)
 
 
+        // Initialize the back button
         val backButton: ImageView = findViewById(R.id.icon_back_arrow)
 
-        // Set OnClickListener to the back arrow ImageView
+        // Set OnClickListener to the back button
         backButton.setOnClickListener {
-            // Perform the action to navigate back to the previous page
-            onBackPressed()
+            // Navigate to the dashboard activity
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+            finish() // Finish the current activity to prevent returning to it via back navigation
         }
 
     }

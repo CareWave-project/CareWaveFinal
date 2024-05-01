@@ -26,13 +26,13 @@ class ViewMedicationActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_view_medication2)
 
 
-        val backButton: ImageView = findViewById(R.id.icon_back_arrow)
-
-        // Set OnClickListener to the back arrow ImageView
-        backButton.setOnClickListener {
-            // Perform the action to navigate back to the previous page
-            onBackPressed()
-        }
+//        val backButton: ImageView = findViewById(R.id.icon_back_arrow)
+//
+//        // Set OnClickListener to the back arrow ImageView
+//        backButton.setOnClickListener {
+//            // Perform the action to navigate back to the previous page
+//            onBackPressed()
+//        }
         // Get the current user's ID from Firebase Authentication
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 
@@ -179,5 +179,15 @@ class ViewMedicationActivity2 : AppCompatActivity() {
                 // Handle errors
             }
         })
+        // Initialize the back arrow
+        val backButton: ImageView = findViewById(R.id.icon_back_arrow)
+
+        // Set OnClickListener to the back arrow ImageButton
+        backButton.setOnClickListener {
+            // Navigate back to the dashboard activity
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+            finish() // Finish the current activity to prevent returning to it via back navigation
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.carewave1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -19,9 +20,15 @@ class ViewMedicationActivity: AppCompatActivity() {
 
 // Set OnClickListener to the back arrow ImageView
         backButton.setOnClickListener {
+            // Navigate back to the dashboard activity
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
             // Finish the current activity to navigate back to the previous page
             finish()
         }
+
+
+
 
 
         // If the user is not logged in, return

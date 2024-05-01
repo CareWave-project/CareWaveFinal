@@ -95,6 +95,7 @@
 
             <!-- Display retrieved oxygen saturation rate -->
             <EditText
+                android:id="@+id/spo2Text"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="20sp"
@@ -108,6 +109,7 @@
 
 
             <TextView
+                android:id="@+id/spo2StatusText"
                 android:layout_width="350dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="00dp"

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -15,15 +16,28 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var userNameTextView: TextView
     private lateinit var userAgeTextView: TextView
     private lateinit var userContactTextView: TextView
+    private lateinit var editButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        // Initialize the back button
+        val backButton: ImageView = findViewById(R.id.icon_back_arrow)
+
+        // Set OnClickListener to the back button
+        backButton.setOnClickListener {
+            // Navigate to the dashboard activity
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+            finish() // Finish the current activity to prevent returning to it via back navigation
+        }
+
         // Initialize views
         userNameTextView = findViewById(R.id.userNameTextView)
         userAgeTextView = findViewById(R.id.userAgeTextView)
         userContactTextView = findViewById(R.id.userContactTextView)
+        editButton = findViewById(R.id.editButton)
         val signOutButton = findViewById<Button>(R.id.signOutButton)
 
         // Set click listener for sign out button
@@ -50,15 +64,16 @@ class ProfileActivity : AppCompatActivity() {
                     }
                     val age = dataSnapshot.child("age").getValue(String::class.java)
                     age?.let {
-                        // Display the user's name in the TextView
+                        // Display the user's age in the TextView
                         userAgeTextView.text = "Age: $age"
                     }
                     val contact = dataSnapshot.child("contact").getValue(String::class.java)
                     contact?.let {
-                        // Display the user's name in the TextView
+                        // Display the user's contact in the TextView
                         userContactTextView.text = "Contact: $contact"
                     }
                 }
+
                 override fun onCancelled(databaseError: DatabaseError) {
                     // Handle errors
                     // For now, log the error
@@ -66,5 +81,34 @@ class ProfileActivity : AppCompatActivity() {
                 }
             })
         }
+
+        // Set click listener for edit button
+        editButton.setOnClickListener {
+            if (editButton.text == "Edit") {
+                // Enable editing mode
+                enableEditing()
+                // Change button text to "Save"
+                editButton.text = "Save"
+            } else {
+                // Save edited details to Firebase
+                saveDetails()
+                // Disable editing mode
+                disableEditing()
+                // Change button text to "Edit"
+                editButton.text = "Edit"
+            }
+        }
+    }
+
+    private fun enableEditing() {
+        // Enable editing of details (e.g., enable EditText fields)
+    }
+
+    private fun saveDetails() {
+        // Save edited details to Firebase
+    }
+
+    private fun disableEditing() {
+        // Disable editing of details (e.g., disable EditText fields)
     }
 }
