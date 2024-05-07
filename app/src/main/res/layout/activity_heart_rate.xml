@@ -101,7 +101,7 @@
         <TextView
             android:id="@+id/heartRateStatusText"
             android:layout_width="350dp"
-            android:layout_height="50dp"
+            android:layout_height="90dp"
             android:layout_marginTop="00dp"
             android:background="@null"
             android:fontFamily="sans-serif"

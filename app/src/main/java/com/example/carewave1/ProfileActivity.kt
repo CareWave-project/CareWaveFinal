@@ -37,7 +37,7 @@ class ProfileActivity : AppCompatActivity() {
         userNameTextView = findViewById(R.id.userNameTextView)
         userAgeTextView = findViewById(R.id.userAgeTextView)
         userContactTextView = findViewById(R.id.userContactTextView)
-        editButton = findViewById(R.id.editButton)
+       // editButton = findViewById(R.id.editButton)
         val signOutButton = findViewById<Button>(R.id.signOutButton)
 
         // Set click listener for sign out button
@@ -82,22 +82,22 @@ class ProfileActivity : AppCompatActivity() {
             })
         }
 
-        // Set click listener for edit button
-        editButton.setOnClickListener {
-            if (editButton.text == "Edit") {
-                // Enable editing mode
-                enableEditing()
-                // Change button text to "Save"
-                editButton.text = "Save"
-            } else {
-                // Save edited details to Firebase
-                saveDetails()
-                // Disable editing mode
-                disableEditing()
-                // Change button text to "Edit"
-                editButton.text = "Edit"
-            }
-        }
+//        // Set click listener for edit button
+//        editButton.setOnClickListener {
+//            if (editButton.text == "Edit") {
+//                // Enable editing mode
+//                enableEditing()
+//                // Change button text to "Save"
+//                editButton.text = "Save"
+//            } else {
+//                // Save edited details to Firebase
+//                saveDetails()
+//                // Disable editing mode
+//                disableEditing()
+//                // Change button text to "Edit"
+//                editButton.text = "Edit"
+//            }
+//        }
     }
 
     private fun enableEditing() {

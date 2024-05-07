@@ -16,7 +16,8 @@ class HeartRateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_heart_rate)
 
-// Reference to the database node where your heart rate data is stored
+// Referenc
+// e to the database node where your heart rate data is stored
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("sensor_data")
 
 // Add a value event listener to listen for data changes
@@ -41,7 +42,7 @@ class HeartRateActivity : AppCompatActivity() {
                         heartRateTextView.text = heartRate.toString() + " BPM"
 
                         // Determine heart rate status (normal or abnormal)
-                        val normalRange = 60..100
+                        val normalRange = 60..110
                         val statusText = if (heartRate in normalRange) {
                             "Your Heart Rate is Normal" // Normal case
                         } else {
@@ -65,7 +66,7 @@ class HeartRateActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle errors in case data retrieval fails
-               // Log.w("Firebase", "Error retrieving data: $databaseError")
+                // Log.w("Firebase", "Error retrieving data: $databaseError")
             }
         }
 
@@ -86,3 +87,4 @@ class HeartRateActivity : AppCompatActivity() {
 
     }
 }
+

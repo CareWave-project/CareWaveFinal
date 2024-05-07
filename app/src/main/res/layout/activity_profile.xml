@@ -131,62 +131,60 @@
             android:textColor="#333333"
             android:textSize="16sp" />
 
-        <!-- Caregiver Details -->
-        <TextView
-            android:id="@+id/caregiverDetailsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/userContactTextView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            android:text="Caregiver Details"
-            android:textColor="#333333"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+<!--        &lt;!&ndash; Caregiver Details &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/caregiverDetailsTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/userContactTextView"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:text="Caregiver Details"-->
+<!--            android:textColor="#333333"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold" />-->
 
-        <!-- Caregiver Name -->
-        <TextView
-            android:id="@+id/caregiverNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/caregiverDetailsTextView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="Caregiver Name: Jane"
-            android:textColor="#333333"
-            android:textSize="16sp" />
+<!--        &lt;!&ndash; Caregiver Name &ndash;&gt;-->
+<!--        <EditText-->
+<!--            android:id="@+id/caregiverNameTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/caregiverDetailsTextView"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Caregiver Name: Maria"-->
+<!--            android:textColor="#333333"-->
+<!--            android:textSize="16sp" />-->
 
-        <!-- Caregiver Contact -->
-        <TextView
-            android:id="@+id/caregiverContactTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/caregiverNameTextView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="Caregiver Contact: +91 896745212"
-            android:textColor="#333333"
-            android:textSize="16sp" />
+<!--        &lt;!&ndash; Caregiver Contact &ndash;&gt;-->
+<!--        <EditText-->
+<!--            android:id="@+id/caregiverContactTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/caregiverNameTextView"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Caregiver Contact: +91 896745212"-->
+<!--            android:textColor="#333333"-->
+<!--            android:textSize="16sp" />-->
 
-        <Button
-            android:id="@+id/editButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/caregiverContactTextView"
-            android:layout_alignStart="@+id/caregiverDetailsTextView"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="20dp"
-            android:text="Edit"
-            android:textColor="@android:color/white" />
+<!--        <Button-->
+<!--            android:id="@+id/editButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/caregiverContactTextView"-->
+<!--            android:layout_alignStart="@+id/caregiverDetailsTextView"-->
+<!--            android:layout_marginStart="35dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="@android:color/white" />-->
 
         <Button
             android:id="@+id/signOutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/caregiverContactTextView"
-            android:layout_alignStart="@+id/caregiverDetailsTextView"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="95dp"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="445dp"
             android:text="Sign Out"
             android:textColor="@android:color/white" />
 
