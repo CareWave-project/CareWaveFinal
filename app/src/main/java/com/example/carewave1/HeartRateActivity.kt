@@ -82,7 +82,7 @@ class HeartRateActivity : AppCompatActivity() {
             // Navigate to the dashboard activity
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
-            finish() // Finish the current activity to prevent returning to it via back navigation
+            finish() // Finish the current activity to prevent returning to it by back navigation
         }
 
     }
